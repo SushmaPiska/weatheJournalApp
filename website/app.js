@@ -79,9 +79,9 @@ const updateUI = async() =>{
     try{
         const allData = await req.json();
         console.log(allData);
-        document.getElementById('date').innerHTML =`Date: ${allData[0].date}`;
-        document.getElementById('temp').innerHTML = allData[0].temp;
-        document.getElementById('content').innerHTML = allData[0].feelings;
+        document.getElementById('date').innerHTML =`Date: ${allData.date}`;
+        document.getElementById('temp').innerHTML = allData.temp;
+        document.getElementById('content').innerHTML = allData.feelings;
     }
     catch(error){
         console.log('error');
