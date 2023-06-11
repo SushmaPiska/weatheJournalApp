@@ -24,17 +24,23 @@ const server = app.listen(port, listening);
 function listening(){
     console.log(`running on ${port}`);
 }
-// app.get('/', (req, res)  =>{
-//     res.send("welcome to your server")
-// })
-// get  route
-app.get('http://localhost:3000/all',sendData);
+// get  route../
+app.get('/all',sendData);
 
 // Callback function to complete GET '/all'
 function sendData(req,res){
-    res.status(200).send(projectData);
-    // projectData = [];
-    // console.log('Im in get request');
+    res.send(projectData);
+}
+app.post('/add',addData);
+function addData(req,res){
+    // let data =  req.body;
+    projectData = {
+        date: req.body.date,
+        temp: req.body.temp,
+        content: req.body.content
+    };
+    console.log(projectData);
+    res.send(projectData);
 }
 // console.log(projectData);
 
@@ -47,16 +53,6 @@ function sendData(req,res){
 
 // post a feel
 // const  data=[];
-app.post('http://localhost:3000/add',addData);
-function addData(req,res){
-    // let data =  req.body;
-    projectData = {
-        date: req.body.date,
-        temp: req.body.temp,
-        content: req.body.content
-    };
-    console.log(projectData);
-    res.send(projectData);
 
     // data.push(req.body);
     // console.log('server side data', data)
@@ -64,7 +60,6 @@ function addData(req,res){
     // projectData["date"] =  data.date;
     // projectData["temp"] = data.temp;
     // projectData["feel"] = data.feeling;
-}
     // Callback to debug
 
 // Initialize all route with a callback function

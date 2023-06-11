@@ -24,7 +24,8 @@ function performAction(){
     getWeather(baseURL, zipCode, apiKey)
     .then(function(data){
         console.log(data);
-        postData('/add', {date:d,temp:data.main.temp,content:feelings});
+        postData('/add', {date:d,temp:data.main.temp,content:feelings});    
+    }).then(function(data){
         updateUI();
     })
 };
@@ -73,11 +74,6 @@ const postData = async(url='', data={})=>{
 // postData('http://localhost:3000', {content:feel});
 
 const updateUI = async() =>{
-    // zipCode = document.getElementById('zip').value;
-
-    // let fullURL  = baseURL+zipCode+',us&appid='+apiKey;
-
-    // const req = await fetch(fullURL)
     
     const req = await fetch('/all');
     try{
