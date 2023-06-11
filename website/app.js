@@ -80,8 +80,8 @@ const updateUI = async() =>{
         const allData = await req.json();
         console.log(allData);
         document.getElementById('date').innerHTML =`Date: ${allData.date}`;
-        document.getElementById('temp').innerHTML = allData.temp;
-        document.getElementById('content').innerHTML = allData.feelings;
+        document.getElementById('temp').innerHTML = `temp: ${allData.temp}`;
+        document.getElementById('content').innerHTML = `feeling: ${allData.content}`;
     }
     catch(error){
         console.log('error');
